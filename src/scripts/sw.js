@@ -1,33 +1,17 @@
+/* eslint-disable no-console */
 /* eslint-disable no-restricted-globals */
-import 'regenerator-runtime';
-import CacheHelper from './utils/cache-helper';
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable import/no-extraneous-dependencies */
+import { precacheAndRoute } from 'workbox-precaching';
 
-// Daftar asset yang akan dicaching
-const assetsToCache = [
-  './',
-  './icon/maskable_icon.png',
-  './icon/maskable_icon_x48.png',
-  './icon/maskable_icon_x72.png',
-  './icon/maskable_icon_x96.png',
-  './icon/maskable_icon_x128.png',
-  './icon/maskable_icon_x192.png',
-  './icon/maskable_icon_x384.png',
-  './icon/maskable_icon_x512.png',
-  './index.html',
-  './favicon.png',
-  './app.bundle.js',
-  './app.webmanifest',
-  './sw.bundle.js',
-];
+// Do precaching
+precacheAndRoute(self.__WB_MANIFEST);
 
-self.addEventListener('install', (event) => {
-  event.waitUntil(CacheHelper.cachingAppShell([...assetsToCache]));
+self.addEventListener('install', () => {
+  console.log('Service Worker: Installed');
+  self.skipWaiting();
 });
 
-self.addEventListener('activate', (event) => {
-  event.waitUntil(CacheHelper.deleteOldCache());
-});
-
-self.addEventListener('fetch', (event) => {
-  event.respondWith(CacheHelper.revalidateCache(event.request));
+self.addEventListener('push', () => {
+  console.log('Service Worker: Pushed');
 });

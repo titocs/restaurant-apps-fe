@@ -7,7 +7,7 @@ class RestoDbSource {
     const response = await fetch(API_ENDPOINT.LIST);
     checkStatusFetch({
       response,
-      errorMessage: 'Failed to getting list restaurant, please try again later',
+      errorMessage: 'Error, coba lagi',
     });
 
     return response.json();
@@ -17,7 +17,7 @@ class RestoDbSource {
     const response = await fetch(API_ENDPOINT.DETAIL(id));
     checkStatusFetch({
       response,
-      errorMessage: 'Failed to getting detail restaurant, please try again later',
+      errorMessage: 'Error, coba lagi',
     });
 
     return response.json();

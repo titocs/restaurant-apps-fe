@@ -1,9 +1,10 @@
 /* eslint-disable no-tabs */
 import restoDbSource from '../../data/restodb-source';
-import favoriteRestoIdb from '../../data/favorit-resto-idb';
+import postReview from '../../utils/post-review';
 import UrlParser from '../../routes/url-parser';
+import '../../../styles/main.css';
 import LikeButtonInitiator from '../../utils/like-button-initiator';
-import { createRestoItemTemplate, createRestoDetailTemplate, createLikeButtonTemplate } from '../templates/template-creator';
+import { createRestoDetailTemplate } from '../templates/template-creator';
 
 const Detail = {
   async render() {
@@ -14,7 +15,19 @@ const Detail = {
 				<h1 class="title-review">Reviews</h1>
 				<div class="review-wrapper"></div>
 			</div>
-			<div class="form-review-wrapper"></div>
+			<div class="form-review-wrapper">
+				<form id="form-review-wrapper__container" action="">
+					<div>
+						<label for="name-user"></label>
+						<input id="name-user" type="text" name="name" placeholder="Nama">
+					</div>
+					<div>
+						<label for="review-user"></label>
+						<textarea name="review" id="review-user" cols="30" rows="10" placeholder="Masukkan review"></textarea>
+					</div>
+					<button type="submit" id="submit-review">Submit</button>
+				</form>
+			</div>
 			<div id="likeButtonContainer"></div>
 		`;
   },
@@ -42,37 +55,40 @@ const Detail = {
     	`;
     });
 
-    document.querySelector('.form-review-wrapper').innerHTML = `
-			<form action="">
-				<div>
-					<label for="name"></label>
-					<input id="name" type="text" name="name" placeholder="Nama">
-				</div>
-				<div>
-					<label for="review"></label>
-					<textarea name="review" id="review" cols="30" rows="10" placeholder="Masukkan review"></textarea>
-				</div>
-				<button type="submit" id="submit-review">Submit</button>
-			</form>
-		`;
-
     // Review Customer
     const reviewWrapper = document.querySelector('.review-wrapper');
-    reviewWrapper.innerHTML += `
-			<div class="review-items">
-				<p class="review-items__name">Gilang</p>
-				<small class="review-items__date">13 Januari 2023</small>
-				<div class="review-items__content">
-					<p>Makanannnya enak</p>
+    const customerReviewItems = detailRestoItem.customerReviews;
+    customerReviewItems.forEach((cstReviews) => {
+      reviewWrapper.innerHTML += `
+				<div class="review-items">
+					<p class="review-items__name">${cstReviews.name}</p>
+					<small class="review-items__date">${cstReviews.date}</small>
+					<div class="review-items__content">
+						<p>${cstReviews.review}</p>
+					</div>
 				</div>
-			</div>
-		`;
+			`;
+    });
 
     // Like Button
     const likeButtonContainer = document.getElementById('likeButtonContainer');
     LikeButtonInitiator.init({
       likeButtonContainer,
-      detailRestoItem,
+      resto: detailRestoItem,
+    });
+
+    // POST REVIEW
+    const formReviewContainer = document.getElementById('form-review-wrapper__container');
+    const userName = document.getElementById('name-user');
+    const reviewUser = document.getElementById('review-user');
+
+    formReviewContainer.addEventListener('submit', (e) => {
+      e.preventDefault();
+      postReview({
+        url: url.id,
+        name: userName.value,
+        review: reviewUser.value,
+      });
     });
   },
 };

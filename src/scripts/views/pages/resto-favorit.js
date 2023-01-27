@@ -5,7 +5,7 @@
 /* eslint-disable no-tabs */
 import favRestoIDB from '../../data/favorit-resto-idb';
 import '../../../styles/main.css';
-import { createRestoItemTemplate, createLikeButtonTemplate } from '../templates/template-creator';
+import { createRestoItemTemplate } from '../templates/template-creator';
 
 const FirstPage = {
   async render() {

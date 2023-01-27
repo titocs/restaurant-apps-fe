@@ -1,6 +1,7 @@
 /* eslint-disable indent */
 /* eslint-disable no-tabs */
 import stars from '../../../public/icon/star-solid.svg';
+import '../../../styles/main.css';
 
 const createRestoItemTemplate = (resto) => `
 		<a href="/#/detail/${resto.id}" class="resto-wrapper__item">
@@ -38,11 +39,11 @@ const createRestoDetailTemplate = (resto) => `
 	</ul>`;
 
 const createLikeButtonTemplate = () => `
-		<buttton id="likeButton" class="like-button">❤️ Like</buttton>
+		<buttton id="likeButton" class="like-button" aria-label="like this resto">❤️ Like</buttton>
 `;
 
 const createLikedButtonTemplate = () => `
-		<buttton id="likedButton" class="unlike-button">❤ Liked</buttton>
+		<buttton id="likedButton" class="unlike-button" aria-label="unlike this resto">❤ Liked</buttton>
 `;
 
 export {
