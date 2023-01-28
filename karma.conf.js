@@ -31,6 +31,25 @@ module.exports = function (config) {
       // webpack configuration
       devtool: 'inline-source-map',
       mode: 'development',
+      module: {
+        rules: [
+          {
+            test: /\.(png|svg|jpg|gif)$/i,
+            type: 'asset/resource',
+          },
+          {
+            test: /\.css$/,
+            use: [
+              {
+                loader: 'style-loader',
+              },
+              {
+                loader: 'css-loader',
+              },
+            ],
+          },
+        ],
+      },
     },
 
     webpackMiddleware: {
