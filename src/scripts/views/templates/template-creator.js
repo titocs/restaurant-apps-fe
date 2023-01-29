@@ -5,7 +5,8 @@ import '../../../styles/main.css';
 
 const createRestoItemTemplate = (resto) => `
 		<a href="/#/detail/${resto.id}" class="resto-wrapper__item">
-			<div class="resto-image lazyload" style='background-image: linear-gradient(rgb(70 56 29 / 50%), rgb(10 9 9 / 70%)), url("https://restaurant-api.dicoding.dev/images/medium/${resto.pictureId}");'>
+			<div class="resto-image">
+				<img class="img-custom lazyload" src="https://restaurant-api.dicoding.dev/images/medium/${resto.pictureId}" alt="resto-image">
 				<div class="rating">
 					<img src="${stars}" alt="rating-star">
 					<p>${resto.rating}</p>

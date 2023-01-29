@@ -20,13 +20,13 @@ const Detail = {
 				<form id="form-review-wrapper__container" action="">
 					<div>
 						<label for="name-user"></label>
-						<input id="name-user" type="text" name="name" placeholder="Nama">
+						<input id="name-user" style="height: 44px;" type="text" name="name" placeholder="Nama">
 					</div>
 					<div>
 						<label for="review-user"></label>
 						<textarea name="review" id="review-user" cols="30" rows="10" placeholder="Masukkan review"></textarea>
 					</div>
-					<button type="submit" id="submit-review">Submit</button>
+					<button type="submit" id="submit-review" style="height: 44px;">Submit</button>
 				</form>
 			</div>
 			<div id="likeButtonContainer"></div>

@@ -110,6 +110,8 @@ header > h1 {
 	line-height: 45px;
 	background-color: transparent;
 	border: 0;
+	padding-right: 20px;
+	padding-left: 20px;
 }
 
 .overlay {
@@ -203,25 +205,39 @@ main {
 }
 
 .resto-image {
-    background-image: linear-gradient(
-        rgb(70 56 29 / 50%), 
-        rgb(10 9 9 / 70%)
-      ), url(../public/images/heros/hero-image_2.jpg);
     background-repeat: no-repeat;
     height: 14rem;
     position: relative;
     background-size: cover;
 }
 
+.resto-image::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(70, 56, 29, 0.5), rgba(10, 9, 9, 0.7));
+}
+
+.img-custom {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
 .rating {
-    background-color: white;
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    padding-left: 17px;
-    gap: 6px;
-    max-width: 55px;
-    border-radius: 10px 0px 20px 0px;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	padding-left: 17px;
+	gap: 6px;
+	position: absolute;
+	max-width: 55px;
+	border-radius: 10px 0px 20px 0px;
+	top: 0;
 }
 
 .rating > img {
