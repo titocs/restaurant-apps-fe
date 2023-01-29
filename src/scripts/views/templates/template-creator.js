@@ -6,7 +6,7 @@ import '../../../styles/main.css';
 const createRestoItemTemplate = (resto) => `
 		<a href="/#/detail/${resto.id}" class="resto-wrapper__item">
 			<div class="resto-image">
-				<img class="img-custom lazyload" src="https://restaurant-api.dicoding.dev/images/medium/${resto.pictureId}" alt="resto-image">
+				<img class="img-custom lazyload" data-src="https://restaurant-api.dicoding.dev/images/medium/${resto.pictureId}" alt="resto-image">
 				<div class="rating">
 					<img src="${stars}" alt="rating-star">
 					<p>${resto.rating}</p>
@@ -23,7 +23,7 @@ const createRestoItemTemplate = (resto) => `
 `;
 
 const createRestoDetailTemplate = (resto) => `
-	<img class="resto-item-detail__image lazyload" src="https://restaurant-api.dicoding.dev/images/medium/${resto.pictureId}" alt="">
+	<img class="resto-item-detail__image lazyload" data-src="https://restaurant-api.dicoding.dev/images/medium/${resto.pictureId}" alt="">
 	<ul class="resto-item-detail__desc">
 		<li><span style="font-weight: bold;">Nama Resto: </span>${resto.name}</li>
 		<li><span style="font-weight: bold;">Alamat: </span>${resto.address}</li>
