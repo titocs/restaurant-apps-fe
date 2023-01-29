@@ -12,17 +12,19 @@ const FirstPage = {
     return `
 			<div class="favorite-resto-wrapper">
 				<h2 class="favorite-resto-wrapper__heading">Favorite Resto</h2>
-				<div id="fav-resto" class="fav-resto"></div>
+				<div id="fav-resto-container" class="fav-resto"></div>
 			</div>
 		`;
   },
 
   async afterRender() {
     const restos = await favRestoIDB.getAllRestos();
-    const favRestoContainer = document.getElementById('fav-resto');
+    const favRestoContainer = document.getElementById('fav-resto-container');
 
     if (restos.length === 0) {
-      favRestoContainer.innerHTML = 'You dont have any favorite restaurant';
+      favRestoContainer.innerHTML = `
+				<div class="error-message">You dont have any favorite restaurant</div>
+			`;
       return;
     }
 

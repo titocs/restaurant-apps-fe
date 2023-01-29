@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const json = require('./src/DATA.json');
 
 module.exports = {
@@ -49,5 +50,6 @@ module.exports = {
       ],
     }),
     new CleanWebpackPlugin(),
+    new BundleAnalyzerPlugin(),
   ],
 };

@@ -5,6 +5,7 @@ import UrlParser from '../../routes/url-parser';
 import '../../../styles/main.css';
 import LikeButtonInitiator from '../../utils/like-button-initiator';
 import { createRestoDetailTemplate } from '../templates/template-creator';
+import FavoriteResto from '../../data/favorit-resto-idb';
 
 const Detail = {
   async render() {
@@ -74,6 +75,7 @@ const Detail = {
     const likeButtonContainer = document.getElementById('likeButtonContainer');
     LikeButtonInitiator.init({
       likeButtonContainer,
+      favoriteRestos: FavoriteResto,
       resto: detailRestoItem,
     });
 
