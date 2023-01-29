@@ -53,7 +53,7 @@ Scenario('unFavoriting one restaurant', async ({ I }) => {
   I.seeElement('#likeButton');
   I.click('#likeButton');
 
-  I.amOnPage('/#/favorite');
+  I.amOnPage('/#/resto-favorite');
   I.seeElement('.error-message');
   const noFavoriteRestaurant = await I.grabTextFrom('.error-message');
 
