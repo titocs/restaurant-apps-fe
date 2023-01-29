@@ -9,6 +9,7 @@
     "lint": "eslint ./src",
     "serve": "http-server dist",
     "build-serve": "npm run build && npm run serve",
+		"build-image": "node sharp.js",
     "e2e": "codeceptjs run --steps"
   },
   "keywords": [],
@@ -41,6 +42,7 @@
     "karma-sourcemap-loader": "^0.3.8",
     "karma-webpack": "^5.0.0",
     "puppeteer": "^19.6.2",
+    "sharp": "^0.31.3",
     "style-loader": "^3.3.1",
     "svg-inline-loader": "^0.8.2",
     "ts-node": "^10.9.1",
