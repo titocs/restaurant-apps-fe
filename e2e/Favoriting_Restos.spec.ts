@@ -8,11 +8,6 @@ Before(({ I }) => {
 
 const favoriteEmptyMessage = 'You dont have any favorite restaurant';
 
-// Scenario('show empty favorite Restaurant', ({ I }) => {
-//   I.amOnPage('/#/resto-favorite');
-//   I.see(favoriteEmptyMessage, '.error-message');
-// });
-
 Scenario('Favoriting one restaurant', async ({ I }) => {
   I.see(favoriteEmptyMessage, '.error-message');
   
