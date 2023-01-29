@@ -60,6 +60,10 @@ body {
 	min-height: 100vh;
 }
 
+.error-message {
+	font-weight: 600;
+}
+
 .open {
 	display: block !important;
 }
@@ -114,6 +118,7 @@ header > h1 {
     position: fixed;
     height: 100%;
     z-index: 8;
+		top: 0;
     width: 100%;
 }
 
@@ -342,10 +347,6 @@ main {
 
 textarea {
 	width: 100%;
-}
-
-button[type='submit'] {
-
 }
 
 .title-review {
